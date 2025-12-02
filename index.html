@@ -177,7 +177,7 @@
         }
 
         .hero-content {
-            max-width: 800px;
+            
             margin: 0 auto;
             position: relative;
             z-index: 1;
@@ -200,6 +200,17 @@
             animation-fill-mode: both;
         }
 
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.4s;
+            animation-fill-mode: both;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .btn {
             display: inline-block;
             padding: 15px 40px;
@@ -214,8 +225,20 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
-            animation: fadeInUp 1s ease 0.4s;
+            animation: fadeInUp 1s ease 0.6s;
             animation-fill-mode: both;
+            margin: 10px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
         }
 
         .btn::before {
@@ -472,6 +495,12 @@
             margin-bottom: 20px;
         }
 
+        .project-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
         .project-link {
             display: inline-flex;
             align-items: center;
@@ -480,6 +509,7 @@
             font-weight: 600;
             position: relative;
             padding: 5px 0;
+            transition: var(--transition);
         }
 
         .project-link::after {
@@ -575,6 +605,88 @@
             margin-bottom: 10px;
             display: block;
             font-size: 0.9rem;
+        }
+
+        .timeline-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: var(--transition);
+        }
+
+        .timeline-link:hover {
+            color: var(--accent);
+        }
+
+        /* Certifications Section */
+        .certifications-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 30px;
+        }
+
+        .certification-card {
+            background: rgba(30, 30, 46, 0.6);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+            transform: translateY(50px);
+            opacity: 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .certification-card.animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .certification-card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .certification-card h3 {
+            color: var(--light);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .certification-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: var(--transition);
+        }
+
+        .certification-link:hover {
+            color: var(--accent);
+        }
+
+        .certification-link i {
+            font-size: 1rem;
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+
+        .certification-link:hover i {
+            transform: translateX(5px);
         }
 
         /* Contact Section */
@@ -870,7 +982,8 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
-                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#experience">Achievements</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="hamburger">
@@ -886,9 +999,13 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Yogeshwari Sakharwade</h1>
+                <h1 style="padding-top:120px;">Yogeshwari Sakharwade</h1>
                 <p>AI & Data Science Student | Full Stack Developer | Tech Enthusiast</p>
-                <a href="#projects" class="btn">View My Work</a>
+                <p class="hero-subtitle">Passionate about creating innovative solutions and exploring cutting-edge technologies. Currently pursuing my degree in Artificial Intelligence and Data Science at Savitribai Phule Pune University.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn">View My Work</a>
+                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                </div>
             </div>
         </div>
     </section>
@@ -899,15 +1016,16 @@
             <div class="section-title">
                 <h2>About Me</h2>
             </div>
-            <div class="about-content">
+            <div class="about-content" style="font-size: 20px;">
                 <div class="about-text">
-                    <p>I'm a passionate Artificial Intelligence and Data Science student at Savitribai Phule Pune University, expected to graduate in 2027. I love creating innovative web applications and exploring new technologies.</p>
+                    <p>I'm a passionate Artificial Intelligence and Data Science student at Savitribai Phule Pune University, expected to graduate in 2027.</p>
+                    <p>I love creating innovative web applications and exploring new technologies.</p>
                     <p>With a strong foundation in both frontend and backend development, I enjoy building full-stack applications that solve real-world problems. I'm constantly learning and expanding my skill set to stay at the forefront of technology.</p>
                     <p>When I'm not coding, you can find me contributing to open-source projects, participating in hackathons, or exploring the latest trends in AI and web development.</p>
                 </div>
-                <!-- <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80" alt="Yogeshwari Sakharwade">
-                </div> -->
+                <div class="about-image">
+                    <img src="https://img.freepik.com/premium-vector/caucasian-female-software-developer-her-40s-debugging-program_1238364-101060.jpg" alt="Yogeshwari Sakharwade">
+                </div>
             </div>
         </div>
     </section>
@@ -944,6 +1062,7 @@
                 <div class="skill-category">
                     <h3><i class="fas fa-server"></i> Backend</h3>
                     <ul class="skill-list">
+                        <li><i class="fab fa-react"></i> Next.js</li>
                         <li><i class="fab fa-node-js"></i> Node.js</li>
                         <li><i class="fas fa-bolt"></i> Express.js</li>
                         <li><i class="fas fa-file-code"></i> EJS</li>
@@ -970,29 +1089,59 @@
     <section id="projects">
         <div class="container">
             <div class="section-title">
-                <h2>My Projects</h2>
+                <h2>Featured Projects</h2>
             </div>
             <div class="projects-container">
                 <div class="project-card">
                     <div class="project-img">
-                        <i class="fas fa-robot"></i>
+                        <i class="fas fa-laptop-code"></i>
                     </div>
                     <div class="project-content">
                         <h3>AI Mock Interview Platform</h3>
                         <p>Web-based platform for AI-driven mock interviews with real-time feedback using Next.js, Clerk authentication, and Neon database.</p>
-                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        <div class="project-links">
+                            <a href="https://github.com/Yogeshwari1703/AI_MOCKUP_INTERVIEWER" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                            <a href="https://ai-mockup-interviewer.onrender.com/" class="project-link">Watch Demo <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
                     <div class="project-img">
-                        <i class="fas fa-book"></i>
+                        <i class="fas fa-shopping-cart"></i>
                     </div>
                     <div class="project-content">
                         <h3>BookStore Web Application</h3>
                         <p>Full-stack online bookstore with user authentication, role-based access, and book browsing using React, Node.js, Express, and MongoDB.</p>
-                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        <div class="project-links">
+                            <a href="https://github.com/Yogeshwari1703/BookStore" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                            <a href="https://bookstore-webapp-ys.onrender.com/" class="project-link">Watch Demo <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-paw"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Pet Disease Detection Platform</h3>
+                        <p>Built a web-based prototype that allows pet owners to identify potential diseases based on symptoms.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Yogeshwari1703/pet_healthcare_webApp-JivRaksha" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                            <a href="https://yogeshwari1703.github.io/pet_healthcare_webApp-JivRaksha/" class="project-link">Watch Demo <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mini Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mini Projects</h2>
+            </div>
+            <div class="projects-container">
                 <div class="project-card">
                     <div class="project-img">
                         <i class="fas fa-sticky-note"></i>
@@ -1000,7 +1149,10 @@
                     <div class="project-content">
                         <h3>Keeper Note-making Web App</h3>
                         <p>Dynamic, responsive note-taking application using React and Material UI with add/delete notes functionality.</p>
-                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        <div class="project-links">
+                            <a href="https://github.com/Yogeshwari1703/keeper-webapp" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                            <a href="https://yogeshwari1703.github.io/keeper-webapp/" class="project-link">Watch Demo <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
@@ -1010,7 +1162,62 @@
                     <div class="project-content">
                         <h3>Blog Post CRUD Web Application</h3>
                         <p>Full-stack blog platform using Node.js, Express, and EJS, supporting full CRUD operations and dynamic frontend.</p>
-                        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        <div class="project-links">
+                            <a href="https://github.com/Yogeshwari1703/-Blog-Post-CRUD-Web-App" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                            <a href="https://blog-post-crud-web-app.onrender.com/" class="project-link">Watch Demo <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Permalist Web Application</h3>
+                        <p>Permalist is a dynamic to-do list application with a clean UI and full CRUD operations. Tasks are stored persistently in a PostgreSQL database.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Yogeshwari1703/permalist-project" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                            <a href="https://permalist-project.onrender.com/" class="project-link">Watch Demo <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Tin Dog Dating Platform</h3>
+                        <p>The project showcases a fictional dog dating app designed to connect dog lovers with new and interesting dogs nearby.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Yogeshwari1703/Tin_Dog_Bootstrap_Project" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                            <a href="https://yogeshwari1703.github.io/Tin_Dog_Bootstrap_Project/" class="project-link">Watch Demo <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Customizable Card Editor</h3>
+                        <p>The project showcases an editor that uses to design customizable function cards.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Yogeshwari1703/customizable_cards" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                            <a href="https://yogeshwari1703.github.io/customizable_cards/" class="project-link">Watch Demo <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Lisper</h3>
+                        <p>The project showcases a page where on hover reveals a secret.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Yogeshwari1703/Lisper" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                            <a href="https://yogeshwari1703.github.io/Lisper/" class="project-link">Watch Demo <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1021,30 +1228,62 @@
     <section id="experience">
         <div class="container">
             <div class="section-title">
-                <h2>Experience</h2>
+                <h2>Achievements</h2>
             </div>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>Tech Contributor - Gssoc</h3>
-                        <span class="date">July 2025 – Current</span>
-                        <p>Contributing to open-source projects under GirlScript Summer of Code, implementing features, fixing issues, and collaborating with mentors.</p>
+                        <h3>Tech Contributor - GSSOC</h3>
+                        <span class="date">July 2025 – Oct 2025</span>
+                        <p>Contributed to open-source projects, implemented features, fixed issues, and collaborated with mentors.</p>
+                        <a href="https://media.licdn.com/dms/image/v2/D4D22AQHg6gBerM96xA/feedshare-shrink_2048_1536/B4DZqiQor5H0Aw-/0/1763658878756?e=1766016000&v=beta&t=qzD3_ZgN_lfP4pqBBh0SIlvWf8n4bpVoLkxKLBK5Frc" class="timeline-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h3>Event Manager - Zion</h3>
                         <span class="date">Jan 2025 – March 2025</span>
-                        <p>Led planning and execution of college events, managed logistics/vendors, supervised teams, and resolved challenges under pressure.</p>
+                        <p>Managed event operations, coordinated teams, handled logistics, and solved on-spot challenges.</p>
+                        <a href="#" class="timeline-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>Research Assistant - ConnectFor</h3>
-                        <span class="date">June 2024 – Aug 2024</span>
-                        <p>Conducted research on partner companies, compiled/validated databases, analyzed company profiles, and delivered actionable insights.</p>
+                        <h3>Data Structures and Algorithms - 250+ Problems</h3>
+                        <span class="date">Present</span>
+                        <p>Solved 250+ problems (125+ on LeetCode) across arrays, strings, stacks, queues, sliding window, and backtracking.</p>
+                        <a href="https://leetcode.com/u/yogeshwari_sakharwade/" class="timeline-link">View Profile <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications</h2>
+            </div>
+            <div class="certifications-container">
+                <div class="certification-card">
+                    <i class="fas fa-code"></i>
+                    <h3>C & C++ Programming</h3>
+                    <p>Comprehensive certification covering fundamental programming concepts in C and C++ languages.</p>
+                    <a href="https://media.licdn.com/dms/image/v2/D4D2DAQEN5cmSwt7nww/profile-treasury-image-shrink_800_800/B4DZgZwoNbG8AY-/0/1752778838392?e=1765285200&v=beta&t=21yuh41RHqzqY0SCxOtECeCzxz7wpMfBUTTyRYGH0gw" class="certification-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="certification-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Full Stack Web Development</h3>
+                    <p>Complete certification covering frontend and backend technologies for full stack web development.</p>
+                    <a href="https://media.licdn.com/dms/image/v2/D4D22AQEuRpXCiDU11w/feedshare-shrink_800/B4DZnJEV3YKsAg-/0/1760014983978?e=1766016000&v=beta&t=eIaaubcPD0gW1xgS4nvx_ME7nJ-t-lAYosd6bSN_a9Q" class="certification-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <!-- <div class="certification-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Database Management</h3>
+                    <p>Certification covering SQL, PostgreSQL, MongoDB and database design principles.</p>
+                    <a href="#" class="certification-link">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                </div> -->
             </div>
         </div>
     </section>
@@ -1064,7 +1303,7 @@
                         <li><i class="fas fa-phone"></i> 9970968171</li>
                     </ul>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="https://github.com/Yogeshwari1703"><i class="fab fa-github"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -1077,7 +1316,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2023 Yogeshwari Sakharwade. All Rights Reserved.</p>
+            <p>&copy; 2025 Yogeshwari Sakharwade. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -1217,6 +1456,7 @@
             const skillCategories = document.querySelectorAll('.skill-category');
             const projectCards = document.querySelectorAll('.project-card');
             const timelineItems = document.querySelectorAll('.timeline-item');
+            const certificationCards = document.querySelectorAll('.certification-card');
             
             skillCategories.forEach(item => {
                 const position = item.getBoundingClientRect();
@@ -1238,6 +1478,15 @@
                     setTimeout(() => {
                         item.classList.add('animate');
                     }, index * 200);
+                }
+            });
+            
+            certificationCards.forEach((item, index) => {
+                const position = item.getBoundingClientRect();
+                if(position.top < window.innerHeight - 100) {
+                    setTimeout(() => {
+                        item.classList.add('animate');
+                    }, index * 150);
                 }
             });
         }
